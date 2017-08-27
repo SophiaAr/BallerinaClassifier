@@ -1,0 +1,6 @@
+data/
+dataset/
+augmentation_preview/
+weights/
+__pycache__/
+
