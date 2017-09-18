@@ -1,11 +1,14 @@
 from matplotlib import pyplot as plt
 
-def plot(history):
+def plot(history, from_epoch = 0):
 
     try:
+        acc = history.history['acc'][from_epoch:]
+        val_acc = history.history['val_acc'][from_epoch:]
+        
         # summarize history for accuracy
-        plt.plot(history.history['acc'])
-        plt.plot(history.history['val_acc'])
+        plt.plot(acc)
+        plt.plot(val_acc)
         plt.title('model accuracy')
         plt.ylabel('accuracy')
         plt.xlabel('epoch')
@@ -15,9 +18,12 @@ def plot(history):
         print('There is no accuracy log in history variable')
     
     try:
+        loss = history.history['loss'][from_epoch:]
+        val_loss = history.history['val_loss'][from_epoch:]
+        
         # summarize history for loss
-        plt.plot(history.history['loss'])
-        plt.plot(history.history['val_loss'])
+        plt.plot(loss)
+        plt.plot(val_loss)
         plt.title('model loss')
         plt.ylabel('loss')
         plt.xlabel('epoch')
